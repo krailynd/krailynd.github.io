@@ -5,6 +5,7 @@
 3. Commit
 4. Push
 
+
 # Testing changes locally
 You can [follow this guide](https://help.github.com/articles/setting-up-your-github-pages-site-locally-with-jekyll/) for the full instructions. Below is an abbreviated version.
 
