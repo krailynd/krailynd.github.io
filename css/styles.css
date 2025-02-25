@@ -8,6 +8,7 @@
 @import url("styles-authors.css");
 @import url("../css/media.css");
 
+
 body {
     line-height: 1.45;
     color: hsl(0, 0%, 5%);
@@ -44,7 +45,7 @@ p {
   }
 
   .thing {
-    color:#ff3366;
+    color:#5c5c5c;
   }
   
   h2 {
@@ -67,7 +68,7 @@ p {
   }
   
   small, .font_small {
-      font-size: 0.667rem;
+      font-size: 0.967rem;
       font-family: "Anonymous Pro", 'Courier New', Courier, monospace;
   }
   
@@ -178,7 +179,7 @@ p {
   .menu-index {
       -ms-grid-column-span:4;
       grid-column:span 4;
-      background-color:#33cc99;
+      background-color:#2e2e2e;
       justify-items:center; 
   }
   
@@ -200,7 +201,7 @@ p {
 
   button {
       padding:1rem;
-      background-color:hsl(51, 100%, 50%);
+      background-color:hsl(0deg 0% 100%);
       border:3px solid black;
   }
 
@@ -222,7 +223,7 @@ p {
     top: 0;
     left: 0;
     
-    background-color: hsla(160, 60%, 50%, 0.95);
+    background-color: hsl(0deg 0% 0% / 64%);
     overflow-x: hidden;
     -webkit-transition: 0.5s;
     -o-transition: 0.5s;
@@ -255,12 +256,12 @@ p {
 }
 
 .overlay h2 a {
-    color: #ff3366;
+    color: #4d4d4d;
     font-size: calc(2rem + 1.5vw);
 }
 
 .overlay h2 a:hover {
-    color: #409dd7;
+    color: #6d8a73b3;
 }
 
 .overlay-content-block {
