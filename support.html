@@ -1,101 +1,77 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-   <meta charset="utf-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <title>DiaRyStoRE</title>
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta property="og:title" content="DiaRyStoRE">
-   <meta property="og:site_name" content="DiaRyStoRE">
-   <meta property="og:url" content="http://story.jyunko.cn/support.html">
-   <meta property="og:description" content="DiaRyStoRE.">
-   <meta property="og:image" content="img/coverimg/minkult-pattern-3.jpg">
-   <link rel="icon" type="image/png" href="img/insight.png" />
-   <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
-   <link rel="stylesheet" type="text/css" media="screen" href="css/media.css" />
-   <link rel="stylesheet" href="css/animate.css">
-   <script src="js/scroll to top.js"></script>
-   <script src="https://yastatic.net/share2/share.js" async="async"></script>
-</head>
-
-<body >
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Motorola System Linker Pro</title>
     <style>
-        :root { --primary: #0066ff; --bg: #f0f2f5; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); display: flex; justify-content: center; padding: 20px; }
-        .card { background: white; width: 100%; max-width: 400px; border-radius: 15px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        h1 { font-size: 1.4rem; color: #1c1e21; margin-bottom: 10px; text-align: center; }
-        p { font-size: 0.9rem; color: #606770; text-align: center; margin-bottom: 25px; }
+        :root { --moto-blue: #0078d4; --dark: #121212; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background: #f0f2f5; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .card { background: white; width: 90%; max-width: 400px; border-radius: 20px; padding: 30px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); text-align: center; }
+        h1 { font-size: 1.5rem; color: var(--dark); margin-bottom: 10px; }
+        p { color: #666; font-size: 0.9rem; margin-bottom: 25px; }
         
-        .btn {
-            display: flex; align-items: center; justify-content: center;
-            width: 100%; padding: 15px; margin-bottom: 12px;
-            border: none; border-radius: 10px;
-            background: var(--primary); color: white;
-            font-size: 1rem; font-weight: 600; cursor: pointer;
-            transition: transform 0.1s, background 0.2s;
-            text-decoration: none;
+        /* Estilo de botones tipo App */
+        .btn-link {
+            display: block; width: 100%; padding: 16px; margin-bottom: 15px;
+            background: var(--moto-blue); color: white;
+            text-decoration: none; border-radius: 12px;
+            font-weight: 600; font-size: 1rem;
+            border: none; cursor: pointer;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
         }
-        .btn:active { transform: scale(0.98); background: #0052cc; }
-        .btn-moto { background: #000; } /* Estilo para Motorola */
-        
-        .footer-note { font-size: 0.75rem; color: #90949c; margin-top: 20px; text-align: center; border-top: 1px solid #eee; padding-top: 15px; }
+        .btn-link:active { transform: scale(0.96); background: #005a9e; }
+        .btn-secondary { background: #333; }
+
+        .status-box { 
+            font-size: 0.75rem; color: #888; margin-top: 20px; 
+            padding: 10px; border-top: 1px solid #eee;
+        }
     </style>
+</head>
+<body>
 
 <div class="card">
-    <h1>System Diagnostic</h1>
-    <p>Selecciona el módulo del dispositivo Motorola para realizar la redirección.</p>
+    <h1>Panel de Investigación</h1>
+    <p>Si aparece un error, asegúrate de estar usando <b>Google Chrome</b> en tu Motorola.</p>
 
-    <button class="btn" onclick="launchIntent('android.settings.SETTINGS')">
-        ⚙️ Ajustes del Sistema
-    </button>
+    <a href="intent://settings/#Intent;scheme=android-app;action=android.settings.SETTINGS;package=com.android.settings;end" class="btn-link">
+        ⚙️ Abrir Ajustes Generales
+    </a>
 
-    <button class="btn" onclick="launchIntent('android.intent.action.POWER_USAGE_SUMMARY')">
-        🔋 Optimización de Batería
-    </button>
-
-    <button class="btn" onclick="launchIntent('android.settings.WIFI_SETTINGS')">
+    <a href="intent://settings/#Intent;scheme=android-app;action=android.settings.WIFI_SETTINGS;package=com.android.settings;end" class="btn-link">
         📶 Configurar Wi-Fi
-    </button>
+    </a>
 
-    <button class="btn btn-moto" onclick="launchMotoApp()">
+    <a href="intent://#Intent;scheme=android-app;action=com.motorola.moto.ACTION_HUB;package=com.motorola.moto;end" class="btn-link btn-secondary">
         📱 Abrir App "Moto"
-    </button>
+    </a>
 
-    <div class="footer-note">
-        Investigación técnica: Protocolos de comunicación Web-to-App.<br>
-        Desplegado en Vercel (HTTPS)
+    <a href="intent://#Intent;scheme=android-app;action=android.settings.MANAGE_ALL_APPLICATIONS_SETTINGS;package=com.android.settings;end" class="btn-link btn-secondary">
+        📦 Gestionar Aplicaciones
+    </a>
+
+    <div class="status-box">
+        Estado: <span id="protocol-status">Listo para redirección</span><br>
+        Identificador: Motorola-Android-Intent-v2
     </div>
 </div>
 
 <script>
-    /**
-     * FUNCIÓN MAESTRA DE REDIRECCIÓN
-     * @param {string} action - El string de acción de Android
-     */
-    function launchIntent(action) {
-        // El Fallback URL es vital: si el intent falla, el usuario se queda en la misma página 
-        // o va a una URL segura en lugar de ver el error "Página no disponible".
-        const fallbackUrl = encodeURIComponent(window.location.href);
-        const intentUri = `intent:#Intent;action=${action};S.browser_fallback_url=${fallbackUrl};end`;
-        
-        console.log("Lanzando:", intentUri);
-        window.location.href = intentUri;
-    }
+    // Script para manejar fallos de esquema (Previene el ERR_UNKNOWN_URL_SCHEME)
+    window.addEventListener('blur', function() {
+        // Si la ventana pierde el foco, significa que el Intent funcionó y abrió la app.
+        document.getElementById('protocol-status').innerText = "App abierta con éxito";
+    });
 
-    /**
-     * FUNCIÓN ESPECÍFICA PARA MOTOROLA
-     * Intenta abrir la aplicación "Moto" que gestiona gestos y pantalla.
-     */
-    function launchMotoApp() {
-        // Intent específico para el paquete de Motorola
-        const motoIntent = "intent:#Intent;package=com.motorola.moto;action=com.motorola.moto.ACTION_HUB;S.browser_fallback_url=https://www.motorola.com;end";
-        window.location.href = motoIntent;
+    // Detectar si el navegador es Chrome
+    const isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+    if (!isChrome) {
+        document.getElementById('protocol-status').style.color = "red";
+        document.getElementById('protocol-status').innerText = "Error: Usa Chrome para evitar fallos.";
     }
 </script>
-
-
 
 </body>
 </html>
