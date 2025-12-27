@@ -1206,71 +1206,7 @@
    </script>
 
 
-<style>
-        body { font-family: sans-serif; line-height: 1.6; padding: 20px; background-color: #f4f4f4; }
-        .container { max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-        h1 { color: #333; font-size: 1.2rem; }
-        .section { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
-        .section-title { font-weight: bold; margin-bottom: 10px; display: block; color: #0056b3; }
-        button { 
-            display: block; width: 100%; padding: 12px; margin: 8px 0; 
-            background-color: #007bff; color: white; border: none; 
-            border-radius: 4px; cursor: pointer; font-size: 16px;
-        }
-        button:hover { background-color: #0056b3; }
-        .note { font-size: 0.85rem; color: #666; font-style: italic; }
-    </style>
-   
-<div class="container">
-    <h1>Protocolos de Acceso a Sistema (Android/Motorola)</h1>
-    <p class="note">Nota: Estos botones solo funcionan si se abren desde Chrome o navegadores basados en Chromium en un dispositivo Android.</p>
 
-    <div class="section">
-        <span class="section-title">1. Métodos Estándar (Intent URI)</span>
-        <button onclick="location.href='intent:#Intent;action=android.settings.SETTINGS;end'">
-            Abrir Ajustes Generales
-        </button>
-        <button onclick="location.href='intent:#Intent;action=android.settings.WIFI_SETTINGS;end'">
-            Abrir Wi-Fi
-        </button>
-    </div>
-
-    <div class="section">
-        <span class="section-title">2. Método con Fallback (Redundancia)</span>
-        <button onclick="location.href='intent:#Intent;action=android.settings.BLUETOOTH_SETTINGS;S.browser_fallback_url=https://google.com;end'">
-            Abrir Bluetooth (Seguro)
-        </button>
-        <p class="note">Si el intent falla, este método redirige a Google en lugar de mostrar error.</p>
-    </div>
-
-    <div class="section">
-        <span class="section-title">3. Targeting por Componente (Motorola)</span>
-        <button onclick="location.href='intent:#Intent;component=com.android.settings/.Settings;end'">
-            Forzar Ajustes (Componente)
-        </button>
-        <button onclick="location.href='intent:#Intent;action=com.motorola.moto.ACTION_HUB;end'">
-            Abrir Aplicación "Moto"
-        </button>
-    </div>
-
-    <div class="section">
-        <span class="section-title">4. Disparador por Interacción General</span>
-        <p>Al activar este modo, cualquier toque en la pantalla intentará abrir los ajustes de Batería.</p>
-        <button id="btnActivarJS" style="background-color: #28a745;">Activar Script en Fondo</button>
-    </div>
-</div>
-
-<script>
-    // Implementación del Método 4
-    document.getElementById('btnActivarJS').onclick = function() {
-        alert("Modo de escucha activado. Toca cualquier parte de la página ahora.");
-        
-        document.body.addEventListener('click', function() {
-            // Intent para abrir el uso de batería
-            window.location.href = "intent:#Intent;action=android.intent.action.POWER_USAGE_SUMMARY;end";
-        }, { once: true });
-    };
-</script>
 
 
 </body>
